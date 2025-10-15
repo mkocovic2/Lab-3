@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ds58d4h203qo3"]
+
+[ext_resource type="Script" uid="uid://c3syd0vqjxjqa" path="res://Scenes/Paperman/paperman.gd" id="1_3tsep"]
+[ext_resource type="Texture2D" uid="uid://b81kxxh6c6p33" path="res://Assets/Paperman/paper1.png" id="1_nrm63"]
+[ext_resource type="Texture2D" uid="uid://bhmnvv6qet4ot" path="res://Assets/Paperman/paper2.png" id="2_3tsep"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ppove"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nrm63")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3tsep")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nrm63"]
+radius = 134.13426
+
+[node name="Paperman" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_3tsep")
+follow_speed = 100.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ppove")
+animation = &"idle"
+frame_progress = 0.5085451
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_nrm63")

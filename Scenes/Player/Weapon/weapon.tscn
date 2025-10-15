@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bchfdyquvphrk"]
+
+[ext_resource type="Texture2D" uid="uid://c8s5qdn6kcatg" path="res://Assets/scissors.png" id="1_a3run"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a3run"]
+radius = 142.0
+
+[node name="Weapon" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a3run")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_a3run")
