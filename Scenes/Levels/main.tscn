@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci4fhw3q8nemf"]
+[gd_scene load_steps=7 format=3 uid="uid://ci4fhw3q8nemf"]
 
 [ext_resource type="PackedScene" uid="uid://h1v3n6nd5d5t" path="res://Scenes/Player/Player.tscn" id="1_s0gyx"]
-[ext_resource type="PackedScene" uid="uid://ds58d4h203qo3" path="res://Scenes/Paperman/paperman.tscn" id="2_yjsus"]
+[ext_resource type="PackedScene" uid="uid://hgxmb4cjj6j7" path="res://Scenes/Spawner/spawner.tscn" id="2_yjsus"]
+[ext_resource type="AudioStream" uid="uid://k248ymww2rmy" path="res://Assets/Audio/DudeMelody.mp3" id="3_u872a"]
+[ext_resource type="Texture2D" uid="uid://b0w62twwmcmh5" path="res://Assets/Misc/blocker.png" id="4_nk5xi"]
 
 [sub_resource type="TileSet" id="TileSet_3uc32"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yjsus"]
+distance = 47.785004
 
 [node name="Main" type="Node2D"]
 
@@ -11,9 +16,172 @@
 tile_set = SubResource("TileSet_3uc32")
 
 [node name="Player" parent="." instance=ExtResource("1_s0gyx")]
+z_index = 1
 position = Vector2(12, 0)
 scale = Vector2(0.5, 0.5)
 
-[node name="Paperman" parent="." instance=ExtResource("2_yjsus")]
-position = Vector2(-363, 32)
-scale = Vector2(0.235, 0.235)
+[node name="Map Blockers" type="Node2D" parent="."]
+
+[node name="Left Field" type="Node2D" parent="Map Blockers"]
+position = Vector2(50.98, 0)
+
+[node name="Blocker" type="Sprite2D" parent="Map Blockers/Left Field"]
+position = Vector2(-1053, 120.47998)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker2" type="Sprite2D" parent="Map Blockers/Left Field"]
+position = Vector2(-1053, -304.52002)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker3" type="Sprite2D" parent="Map Blockers/Left Field"]
+position = Vector2(-1053, -640)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker4" type="Sprite2D" parent="Map Blockers/Left Field"]
+position = Vector2(-1053, 575.48)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Right Field" type="Node2D" parent="Map Blockers"]
+position = Vector2(2046.63, 0)
+
+[node name="Blocker" type="Sprite2D" parent="Map Blockers/Right Field"]
+position = Vector2(-1053, 120.47998)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker2" type="Sprite2D" parent="Map Blockers/Right Field"]
+position = Vector2(-1053, -304.52002)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker3" type="Sprite2D" parent="Map Blockers/Right Field"]
+position = Vector2(-1053, -640)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker4" type="Sprite2D" parent="Map Blockers/Right Field"]
+position = Vector2(-1053, 575.48)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Top Field" type="Node2D" parent="Map Blockers"]
+position = Vector2(0, 104.95)
+
+[node name="Blocker3" type="Sprite2D" parent="Map Blockers/Top Field"]
+position = Vector2(-711, -824)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker4" type="Sprite2D" parent="Map Blockers/Top Field"]
+position = Vector2(-280, -824)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker5" type="Sprite2D" parent="Map Blockers/Top Field"]
+position = Vector2(238, -827)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker6" type="Sprite2D" parent="Map Blockers/Top Field"]
+position = Vector2(760, -814)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Bottom Field" type="Node2D" parent="Map Blockers"]
+position = Vector2(37, 1526.475)
+
+[node name="Blocker3" type="Sprite2D" parent="Map Blockers/Bottom Field"]
+position = Vector2(-711, -824)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker4" type="Sprite2D" parent="Map Blockers/Bottom Field"]
+position = Vector2(-280, -824)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker5" type="Sprite2D" parent="Map Blockers/Bottom Field"]
+position = Vector2(238, -827)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Blocker6" type="Sprite2D" parent="Map Blockers/Bottom Field"]
+position = Vector2(760, -814)
+scale = Vector2(0.37333333, 0.37333333)
+texture = ExtResource("4_nk5xi")
+
+[node name="Bottom BLock" type="StaticBody2D" parent="Map Blockers"]
+position = Vector2(2, 717)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Blockers/Bottom BLock"]
+scale = Vector2(2, 2)
+shape = SubResource("WorldBoundaryShape2D_yjsus")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map Blockers/Bottom BLock"]
+
+[node name="Left Block" type="StaticBody2D" parent="Map Blockers"]
+position = Vector2(-1000, 4)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Blockers/Left Block"]
+scale = Vector2(2, 2)
+shape = SubResource("WorldBoundaryShape2D_yjsus")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map Blockers/Left Block"]
+
+[node name="Top Block" type="StaticBody2D" parent="Map Blockers"]
+position = Vector2(-1, -717)
+rotation = -3.1415925
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Blockers/Top Block"]
+scale = Vector2(2, 2)
+shape = SubResource("WorldBoundaryShape2D_yjsus")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map Blockers/Top Block"]
+
+[node name="Right Block" type="StaticBody2D" parent="Map Blockers"]
+position = Vector2(1000, 4)
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Blockers/Right Block"]
+scale = Vector2(2, 2)
+shape = SubResource("WorldBoundaryShape2D_yjsus")
+
+[node name="Sprite2D" type="Sprite2D" parent="Map Blockers/Right Block"]
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="Spawner" parent="Spawners" instance=ExtResource("2_yjsus")]
+position = Vector2(-705, 450)
+scale = Vector2(0.465, 0.465)
+spawn_interval = 4.0
+
+[node name="Spawner2" parent="Spawners" instance=ExtResource("2_yjsus")]
+position = Vector2(705, 450)
+rotation = 3.1415927
+scale = Vector2(0.465, -0.465)
+spawn_interval = 4.0
+
+[node name="Spawner3" parent="Spawners" instance=ExtResource("2_yjsus")]
+position = Vector2(-705, -450)
+scale = Vector2(0.465, 0.465)
+spawn_interval = 4.0
+
+[node name="Spawner4" parent="Spawners" instance=ExtResource("2_yjsus")]
+position = Vector2(705, -450)
+rotation = 3.1415927
+scale = Vector2(0.465, -0.465)
+spawn_interval = 4.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_u872a")
+volume_db = -8.077
+autoplay = true
