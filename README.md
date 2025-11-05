@@ -3,7 +3,6 @@
 ## Controls
 - **Arrow Keys / WASD** - Move around
 - **Space** - Dash (has cooldown)
-- **Space/Enter** - Interact with objects
 
 ## Systems
 
@@ -29,8 +28,3 @@
 - Enemies and hazards deal damage on contact
 - Knockback pushes entities away from damage source
 - Visual feedback when taking damage (color flash)
-
-### Interactables (Pingleton)
-- Press Space/Enter when near to interact
-- Plays destruction animation
-- Removes itself after interaction
